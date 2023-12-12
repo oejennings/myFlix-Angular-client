@@ -15,7 +15,7 @@ export class FetchApiDataService {
   // Inject the HttpClient module to the constructor params
  // This will provide HttpClient to the entire class, making it available via this.http
   constructor(private http: HttpClient) { }
-  
+
  // Making the api call for the user registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
@@ -33,7 +33,7 @@ export class FetchApiDataService {
   }
 
   // Making the api call for the get all movies endpoint
-  getAllMovies(): Observable<any> {
+  public getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {headers: new HttpHeaders(
       {
@@ -87,9 +87,9 @@ export class FetchApiDataService {
   }
 
   // Making the api call for the get user endpoint
-  getOneUser(): Observable<any> {
+  getOneUser(username: string): Observable<any> {
     const token = localStorage.getItem('token');
-      return this.http.get(apiUrl + 'users/' + user.Username, {
+      return this.http.get(apiUrl + 'users/' + username, {
         headers: new HttpHeaders(
       {
         Authorization: 'Bearer' + token,
@@ -187,7 +187,7 @@ export class FetchApiDataService {
   }
 
 // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: any): any {
     const body = res;
     return body || { };
   }
