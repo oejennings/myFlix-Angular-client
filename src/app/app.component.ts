@@ -6,6 +6,7 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
+  // standalone: true,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
