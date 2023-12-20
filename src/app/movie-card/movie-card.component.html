@@ -1,7 +1,7 @@
 <!-- src/app/movie-card/movie-card.component.html -->
 <div class="movie-card">
     <mat-card *ngFor="let movie of movies;" style="flex: 1 1 auto;">
-        <mat-card-header>
+        <mat-card-header class="movie-card-header">
         <mat-card-title>{{movie.Title}}</mat-card-title>
             <mat-card-subtitle>Directed by: {{movie.Director.Name}}</mat-card-subtitle>
         </mat-card-header>
@@ -23,7 +23,7 @@
                 mat-button
                 color="primary"
             >
-                Synopsis
+                Description
             </button>
             <mat-icon>favorite_border</mat-icon>
         </mat-card-actions>
