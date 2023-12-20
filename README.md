@@ -1,6 +1,11 @@
 # MyFlixAngularClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+MyFlixAngularClient is the client side of an application built with Angular called myFlix. It is based on an exisiting server-sidew code (REST API and database), with supporting documentation. 
+
+## Technologies Used 
+- Angular
+- Angular Material
+- TypeScript
 
 ## Development server
 
