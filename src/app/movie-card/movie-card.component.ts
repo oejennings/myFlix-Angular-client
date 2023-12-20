@@ -3,12 +3,10 @@ import { FetchApiDataService } from '../fetch-api-data.service'
 
 @Component({
   selector: 'app-movie-card',
-  standalone: true,
-  imports: [],
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   constructor(public fetchApiData: FetchApiDataService) { }
 
