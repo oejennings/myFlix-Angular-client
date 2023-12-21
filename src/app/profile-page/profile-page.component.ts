@@ -37,10 +37,17 @@ export class ProfilePageComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @returns user informatin from local storage
+   */
   getUser(): User {
     return JSON.parse(localStorage.getItem('user') || '{}');
   }
 
+  /**
+   * updates user information
+   */
   updateUser(): void {
     this.fetchApiData.editUser(this.userData).subscribe((result) => {
       localStorage.setItem('user', JSON.stringify(result))

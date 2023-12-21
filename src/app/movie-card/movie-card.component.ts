@@ -1,3 +1,4 @@
+//src/app/movie-card/movie-card.components.ts
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -24,6 +25,10 @@ ngOnInit(): void {
 
 }
 
+/**
+ * gets all movies
+ * @returns array of movies
+ */
 getMovies(): void {
   this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -32,6 +37,10 @@ getMovies(): void {
     });
   }
 
+  /**
+   * returns dialog with information about movies genre
+   * @param genre 
+   */
   openGenreDialog(genre: any): void {
     this.dialog.open(MovieDetailsDialogComponent, {
       data: {
@@ -41,6 +50,10 @@ getMovies(): void {
     })
   }
 
+  /**
+   * returns dialog with information about movies description
+   * @param synopsis 
+   */
   openDescriptionDialog(synopsis: string): void {
     this.dialog.open(MovieDetailsDialogComponent, {
       data: {
@@ -50,6 +63,10 @@ getMovies(): void {
     })
   }
 
+  /**
+   * returns dialog with information about movies director
+   * @param director 
+   */
   openDirectorDialog(director: any): void {
     this.dialog.open(MovieDetailsDialogComponent, {
       data: {
@@ -59,10 +76,19 @@ getMovies(): void {
     })
   }
 
+  /**
+   * 
+   * @param id 
+   * @returns boolean if movies is a favorite movie or not
+   */
   isFavorite(id: string): boolean {
     return this.fetchApiData.isFavoriteMovie(id)
   }
 
+  /**
+   * removes movie from favorites
+   * @param id 
+   */
   removeFavorite(id: string): void {
     this.fetchApiData.deleteFavoriteMovie(id).subscribe(() => {
       this.snackBar.open('removed from favorites', 'OK', {
@@ -71,6 +97,10 @@ getMovies(): void {
     });
   }
 
+  /**
+   * add movie to favorites
+   * @param id 
+   */
   addFavorite(id: string): void {
     this.fetchApiData.addFavoriteMovie(id).subscribe(() => {
       this.snackBar.open('added to favorites', 'OK', {
