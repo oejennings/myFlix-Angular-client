@@ -17,7 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/my-flix-angular-client",
+            "baseHref": "/myFlix-Angular-client",
+            "outputPath": "dist/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -100,10 +101,6 @@
             "scripts": []
           }
         },
-        "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
-        },
-        
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
@@ -112,6 +109,9 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
